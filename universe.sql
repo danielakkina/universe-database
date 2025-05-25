@@ -161,7 +161,7 @@ ALTER SEQUENCE public.planet_planet_id_seq OWNED BY public.planet.planet_id;
 --
 
 CREATE TABLE public.space_agency (
-    agency_id integer NOT NULL,
+    space_agency_id integer NOT NULL,
     name character varying NOT NULL,
     founded_year integer
 );
@@ -188,7 +188,7 @@ ALTER TABLE public.space_agency_agency_id_seq OWNER TO freecodecamp;
 -- Name: space_agency_agency_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
 --
 
-ALTER SEQUENCE public.space_agency_agency_id_seq OWNED BY public.space_agency.agency_id;
+ALTER SEQUENCE public.space_agency_agency_id_seq OWNED BY public.space_agency.space_agency_id;
 
 
 --
@@ -250,10 +250,10 @@ ALTER TABLE ONLY public.planet ALTER COLUMN planet_id SET DEFAULT nextval('publi
 
 
 --
--- Name: space_agency agency_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+-- Name: space_agency space_agency_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
 --
 
-ALTER TABLE ONLY public.space_agency ALTER COLUMN agency_id SET DEFAULT nextval('public.space_agency_agency_id_seq'::regclass);
+ALTER TABLE ONLY public.space_agency ALTER COLUMN space_agency_id SET DEFAULT nextval('public.space_agency_agency_id_seq'::regclass);
 
 
 --
@@ -426,7 +426,7 @@ ALTER TABLE ONLY public.planet
 --
 
 ALTER TABLE ONLY public.space_agency
-    ADD CONSTRAINT pk_space_agency PRIMARY KEY (agency_id);
+    ADD CONSTRAINT pk_space_agency PRIMARY KEY (space_agency_id);
 
 
 --
